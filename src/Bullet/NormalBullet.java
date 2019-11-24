@@ -15,9 +15,8 @@ public class NormalBullet extends Bullet {
         range = tower.getRange();
         pos = new Vec2d(tower.getPos());
         towerPos = tower.getPos();
-        isMoving=false;
+        isMoving = false;
     }
-
 
 
 }

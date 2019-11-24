@@ -11,10 +11,11 @@ public class TankerEnemy extends Enemy{
     {
         this.gc=gc;
         pos = new Vec2d(-32,64*10+32);
-        blood=10;
+        blood=50;
+        currentBlood = 50;
         speed= (float) 1;
         armor=10;
-        prize=10;
+        prize=7;
         image= ImageProcessing.splits(16,10);
         for(int i=0;i<4;i++)
         {

@@ -6,6 +6,7 @@ import Enemy.GameEntity;
 import Initialization.ImageProcessing;
 import Initialization.Rotate;
 import com.sun.javafx.geom.Vec2d;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,13 @@ public abstract class Tower extends GameEntity {
     protected ArrayList<Enemy> enemyListPos = new ArrayList<>();
     protected Bullet bullet;
     protected Enemy dangerousEnemy;
+    protected Image pedestal;
+    protected int priceBuy;
+    protected int priceSell;
+
+    public int getPriceSell(){
+        return priceSell;
+    }
 
     public Enemy getDangerousEnemy() {
         return dangerousEnemy;
@@ -24,6 +32,14 @@ public abstract class Tower extends GameEntity {
 
     public int getRange() {
         return range;
+    }
+
+    public void setPos(Vec2d pos) {
+        this.pos = pos;
+    }
+
+    public Vec2d getPos() {
+        return pos;
     }
 
     public double getSpeed() {
@@ -36,15 +52,14 @@ public abstract class Tower extends GameEntity {
 
     public void update() {
         getTarget();
-        if(dangerousEnemy!=null) {
+        if (dangerousEnemy != null) {
             angle = Rotate.setAngle(dangerousEnemy.getPos(), pos);
         }
         bullet.shoot(dangerousEnemy);
     }
 
-    public void getTarget()
-    {
-        if(!bullet.isMoving) {
+    public void getTarget() {
+        if (!bullet.isMoving) {
             for (int i = 0; i < enemyListPos.size(); i++) {
                 if (Vec2d.distance(enemyListPos.get(i).getPos().x, enemyListPos.get(i).getPos().y, pos.x, pos.y) <= range) {
                     dangerousEnemy = enemyListPos.get(i);
@@ -56,14 +71,8 @@ public abstract class Tower extends GameEntity {
     }
 
     public void draw() {
-        ImageProcessing.draw(gc,image,angle,pos.x,pos.y);
+        gc.drawImage(pedestal, pos.x, pos.y);
+        ImageProcessing.draw(gc, image, angle, pos.x, pos.y);
         bullet.draw();
-        gc.strokeOval((pos.x + 32) - range, (pos.y + 32) - range, range * 2, range * 2);
-        for (int i = 0; i < enemyListPos.size(); i++) {
-            if (Vec2d.distance(enemyListPos.get(i).getPos().x, enemyListPos.get(i).getPos().y, pos.x, pos.y) <= range) {
-                gc.strokeLine(pos.x + 32, pos.y + 32, enemyListPos.get(i).getPos().x + 32, enemyListPos.get(i).getPos().y + 32);
-                break;
-            }
-        }
     }
 }

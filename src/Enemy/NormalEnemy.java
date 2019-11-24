@@ -11,10 +11,11 @@ public class NormalEnemy extends Enemy {
     {
         this.gc=gc;
         pos = new Vec2d(-32,64*10+32);
-        blood=10;
+        blood=20;
+        currentBlood = 20;
         speed= (float) 2;
         armor=10;
-        prize=10;
+        prize=4;
         image= ImageProcessing.splits(15,10);
         for(int i=0;i<4;i++)
         {
