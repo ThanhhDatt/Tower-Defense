@@ -9,6 +9,7 @@ import Tower.RocketTower;
 import com.sun.javafx.geom.Vec2d;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -102,11 +103,16 @@ public class Controller extends AnimationTimer {
 
     @Override
     public void handle(long now) {
-        if (isRunning) {
-            gameField.update();
+        if(Player.blood>0) {
+            if (isRunning) {
+                gameField.update();
+            }
+            gameField.draw();
+            this.draw();
         }
-        gameField.draw();
-        this.draw();
+        else{
+            gameField.gc.drawImage(new Image("Game/gameover.png", (int)(20*64), (int)(64*12),false, true),0,0);
+        }
     }
 
     public static void mouseClicked(MouseEvent mouseEvent) {

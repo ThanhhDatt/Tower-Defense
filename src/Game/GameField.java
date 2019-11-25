@@ -33,17 +33,31 @@ public class GameField {
         GameField.infgc.setFill(Color.BLACK);
         GameField.infgc.setFont(new Font(32));
 
-        enemyQ = new LinkedList<>();
-        for (int j = 0; j < 10; j++) {
-            if (Math.round(Math.random()) == 0) {
-                enemyQ.add(new NormalEnemy(gc));
-            } else enemyQ.add(new TankerEnemy(gc));
+//        enemyQ = new LinkedList<>();
+//        for (int j = 0; j < 10; j++) {
+//            if (Math.round(Math.random()) == 0) {
+//                enemyQ.add(new NormalEnemy(gc));
+//            } else enemyQ.add(new TankerEnemy(gc));
+//        }
+
+        waves = new ArrayList<>();
+        int norAmount=20;
+        int tankAmount=0;
+        for(int i=0;i<10;i++){
+            waves.add(new LinkedList<>());
+            if (Math.round(Math.random()) == 0){
+                addNormalEnemy(i,norAmount);
+                addTankerEnemy(i, tankAmount);
+            }
+            else {
+                addTankerEnemy(i, tankAmount);
+                addNormalEnemy(i,norAmount);
+
+            }
+            norAmount+=2;
+            tankAmount+=2;
         }
 
-//        wave = new ArrayList<>();
-//        for(int i=0;i<10;i++){
-//
-//        }
 
         enemyList = new ArrayList<>();
 
@@ -52,7 +66,7 @@ public class GameField {
     }
 
     private Background road;
-    private Queue<Enemy> enemyQ;
+//    private Queue<Enemy> enemyQ;
     private ArrayList<Enemy> enemyList;
     private ArrayList<Tower> towerList;
     private ArrayList<Queue<Enemy>> waves;
@@ -71,10 +85,19 @@ public class GameField {
     }
 
     public void update() {
-        if (!enemyQ.isEmpty()) {
-            if (round % 20 == 0) {
-                enemyList.add(enemyQ.poll());
+//        if (!enemyQ.isEmpty()) {
+//            if (round % 20 == 0) {
+//                enemyList.add(enemyQ.poll());
+//            }
+//        }
+
+        if(!waves.get(wave).isEmpty()){
+            if(round%30==0){
+                enemyList.add(waves.get(wave).poll());
             }
+        }
+        else if(enemyList.isEmpty()){
+            wave++;
         }
         round++;
 
@@ -121,5 +144,18 @@ public class GameField {
         infgc.fillText("Blood: "+Player.blood + "\n" +"$: " +Player.money,0,50 );
 
     }
+
+    private void addNormalEnemy(int a, int amount){
+        for(int i=0;i<amount;i++){
+            waves.get(a).add(new NormalEnemy(gc));
+        }
+    }
+
+    private  void addTankerEnemy(int a, int amount){
+        for(int i=0;i<amount;i++){
+            waves.get(a).add(new TankerEnemy(gc));
+        }
+    }
+
 
 }
