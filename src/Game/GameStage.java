@@ -52,11 +52,12 @@ public class GameStage {
         canvas.setOnMouseMoved(Controller::mouseMove);
 
         AnchorPane.setLeftAnchor(buttonList, (double) 20 * 64);
-        buttonList.add(Controller.startButton, 0, 0);
-        buttonList.add(Controller.stopButton, 1, 0);
-        buttonList.add(Controller.normalTowerButton, 0, 1, 2, 1);
-        buttonList.add(Controller.rockerTowerButton, 0, 2, 2, 1);
-        buttonList.add(inf, 0, 3, 2, 1);
+        buttonList.add(Controller.restartButton,0,0,2,1);
+        buttonList.add(Controller.startButton, 0, 1);
+        buttonList.add(Controller.stopButton, 1, 1);
+        buttonList.add(Controller.normalTowerButton, 0, 2, 2, 1);
+        buttonList.add(Controller.rockerTowerButton, 0, 3, 2, 1);
+        buttonList.add(inf, 0, 4, 2, 1);
 
         root.getChildren().addAll(canvas, buttonList);
 

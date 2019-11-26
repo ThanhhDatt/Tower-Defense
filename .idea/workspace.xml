@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f977c6c-fd50-47b8-93ee-ae6592a09174" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Game/gameover.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Game/Game/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/Game/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Game/Game/GameField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/Game/GameField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Game/META-INF/Game.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Game/Game/GameStage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/Game/GameStage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameStage.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +82,14 @@
       <option name="presentableId" value="Default" />
       <updated>1571065614254</updated>
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <created>1574693202732</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574693202732</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,5 +104,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>

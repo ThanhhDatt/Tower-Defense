@@ -45,6 +45,8 @@ public class Controller extends AnimationTimer {
     public static Button rockerTowerButton;
     public static Button machineGunTowerButton;
 
+    public static Button restartButton;
+
 
     static {
         // startButton
@@ -62,7 +64,13 @@ public class Controller extends AnimationTimer {
         stopButton.setOnAction(e -> {
             isRunning = false;
         });
-
+        //restart
+        restartButton = new Button("Restart");
+        restartButton.setMinSize(200,100);
+        restartButton.setMaxSize(200,100);
+        restartButton.setOnAction(e-> {
+            gameField = new GameField(GameField.gc, GameField.infgc);
+        });
 //        //nextWave Button
 //        nextWaveButton = new Button("Next Wave");
 //        nextWaveButton.setMinSize(100, 100);

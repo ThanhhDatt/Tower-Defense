@@ -41,7 +41,7 @@ public class GameField {
 //        }
 
         waves = new ArrayList<>();
-        int norAmount=20;
+        int norAmount=19;
         int tankAmount=0;
         for(int i=0;i<10;i++){
             waves.add(new LinkedList<>());
